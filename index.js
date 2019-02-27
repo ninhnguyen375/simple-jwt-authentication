@@ -1,5 +1,5 @@
 require('dotenv').config();
-const mongooes = require('mongoose');
+const mongoose = require('mongoose');
 const jsonwebtoken = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const app = require('express')();
@@ -7,13 +7,13 @@ const allRoutes = require('./api/routes/allRoutes');
 
 const { PORT, MONGO_URI, JWTKey } = process.env;
 
-// Connect to MongoDB
-mongooes.connect(MONGO_URI, { useNewUrlParser: true });
+// Config MongoDB
+mongoose.set('useCreateIndex', true);
+mongoose.connect(MONGO_URI, { useNewUrlParser: true });
 
 // Config middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use((req, res, next) => {
   if (
     req.headers
@@ -41,4 +41,6 @@ app.use((req, res) => {
   res.status(404).send({ url: `${req.originalUrl} not found` });
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Ready on http://localhost:${PORT}`);
+});
