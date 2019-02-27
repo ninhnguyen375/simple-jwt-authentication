@@ -1,0 +1,24 @@
+{
+  "name": "simple-jwt-authentication",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "lastest",
+    "body-parser": "lastest",
+    "dotenv": "^6.2.0",
+    "express": "lastest",
+    "jsonwebtoken": "lastest",
+    "mongoose": "lastest"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "build": ""
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
